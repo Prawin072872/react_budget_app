@@ -10,6 +10,24 @@ const AllocationForm = (props) => {
 
     const submitEvent = () => {
 
+        const enteredValue = Number(cost)
+
+        //checking if the entered value is a number
+
+        if(Number.isNaN(enteredValue)){
+            alert("Please enter a valid Number")
+            return
+        }
+
+        //checking if the entered value is a integer number
+
+        if(!Number.isInteger(enteredValue)){
+            alert("Please enter an integer Number")
+            return
+        }
+
+
+
             if(cost > remaining) {
                 alert("The value cannot exceed remaining funds  £"+remaining);
                 setCost("");
@@ -56,10 +74,17 @@ const AllocationForm = (props) => {
                   </div>
                   <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
                         <option defaultValue value="Add" name="Add">Add</option>
-                <option value="Reduce" name="Reduce">Reduce</option>
+                        <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
+                  <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+                    <label htmlFor='cost' style={{marginLeft: '2rem'}}>
+                        {currency}
+                    </label>
+                  </div>
+
                     <input
+                        placeholder='Enter budget value'
                         required='required'
                         type='number'
                         id='cost'
