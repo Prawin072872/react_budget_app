@@ -74,7 +74,7 @@ const Currency = () => {
             type="button"
             onClick={() => setCurrencyHandler('₹')}
           >
-           ₹ Ruppee
+           ₹ Rupee
           </button>
         </li>
       </ul>
