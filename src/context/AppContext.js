@@ -85,6 +85,7 @@ const initialState = {
         { id: "Sales", name: 'Sales', cost: 70 },
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
+        { id: 'Admin', name: 'Admin', cost: 500 }
     ],
     currency: '£'
 };
@@ -98,6 +99,7 @@ export const AppProvider = (props) => {
     // 4. Sets up the app state. takes a reducer, and an initial state
     const [state, dispatch] = useReducer(AppReducer, initialState);
     let remaining = 0;
+    let totalExpenses = 0;
 
     if (state.expenses) {
             const totalExpenses = state.expenses.reduce((total, item) => {
@@ -110,6 +112,7 @@ export const AppProvider = (props) => {
         <AppContext.Provider
             value={{
                 expenses: state.expenses,
+                totalExpenses,
                 budget: state.budget,
                 remaining: remaining,
                 dispatch,

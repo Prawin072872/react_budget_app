@@ -29,7 +29,7 @@ const Currency = () => {
     }
 
     return(
-        <div id="currency-menu" className="dropdown" style={{cursor:pointer}}>
+        <div id="currency-menu" className="dropdown" style={{cursor:'pointer'}}>
             <button 
             id="currency-menu-button" 
             className="btn dropdown-toggle"
